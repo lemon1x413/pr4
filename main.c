@@ -1,49 +1,63 @@
 #include <stdio.h>
-
-
+#include <conio.h>
 void bubbleSort(double arr[], int n) {
-    int i, j;
     double temp;
 
     // Основний цикл для бульбашкового сортування
-    for (i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 1; i++) {
         // Проходимо по масиву і порівнюємо сусідні елементи
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] > arr[i]) {
                 // Міняємо місцями, якщо елемент більший за наступний
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
     }
 }
 
 int main() {
-    int n;
+    unsigned n;
+    char validSize = 0, validArray = 0;
+    do {
+        do {
+            // Введення кількості елементів масиву
+            printf("Enter the size of your array(from 1 to 50):");
+            validSize = scanf("%u", &n);
+            fflush(stdin);
+            if (validSize !=1 || n == 0 || n > 50) {
+                printf("Invalid input. The size of array must be from 1 to 50\n");
+                validSize = 0;
+            }
+        } while (!validSize);
 
-    // Введення кількості елементів масиву
-    printf("Enter the value of your array:");
-    scanf("%d", &n);
+        double arr[n];
 
-    // Оголошення масиву
-    double arr[n];
+        // Введення елементів масиву
+        printf("Enter elements of your array (%d):\n", n);
+        for (int i = 0; i < n; i++) {
+            do {
+                validArray = scanf("%lf", &arr[i]);
+                fflush(stdin);
+                if (validArray !=1) {
+                    printf("Invalid input.\n");
+                    validArray = 0;
+                }
+            } while (!validArray);
+        }
 
-    // Введення елементів масиву
-    printf("Enter elements of your array %d:\n", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%lf", &arr[i]);
-    }
+        // Виклик функції для сортування
+        bubbleSort(arr, n);
 
-    // Виклик функції для сортування
-    bubbleSort(arr, n);
+        // Виведення відсортованого масиву
+        printf("Sorted array:\n");
+        for (int i = 0; i < n; i++) {
+            printf("%.2lf ", arr[i]);
+        }
+        printf("\n");
 
-    // Виведення відсортованого масиву
-    printf("Sorted array:\n");
-    for (int i = 0; i < n; i++) {
-        printf("%.2lf ", arr[i]);
-    }
-    printf("\n");
-
+        printf ("Press ENTER to continue, or any other key to EXIT");
+    } while (getch()==13);
     return 0;
 }
