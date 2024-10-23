@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <conio.h>
+
 void bubbleSort(double arr[], int n) {
     double temp;
-
-    // Основний цикл для бульбашкового сортування
+    //in descending order
     for (int i = 0; i < n - 1; i++) {
-        // Проходимо по масиву і порівнюємо сусідні елементи
         for (int j = i + 1; j < n; j++) {
             if (arr[j] > arr[i]) {
-                // Міняємо місцями, якщо елемент більший за наступний
                 temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -16,9 +14,11 @@ void bubbleSort(double arr[], int n) {
         }
     }
 }
-
+//in ascending order
+//in descending order
 int main() {
     unsigned n;
+
     char validSize = 0, validArray = 0;
     do {
         do {
@@ -35,13 +35,15 @@ int main() {
         double arr[n];
 
         // Введення елементів масиву
-        printf("Enter elements of your array (%d):\n", n);
+        printf("Enter elements of your array (%d):", n);
         for (int i = 0; i < n; i++) {
+            printf("\nElement (%d):", i+1);
             do {
                 validArray = scanf("%lf", &arr[i]);
                 fflush(stdin);
                 if (validArray !=1) {
                     printf("Invalid input.\n");
+                    printf("\nElement (%d):", i+1);
                     validArray = 0;
                 }
             } while (!validArray);
