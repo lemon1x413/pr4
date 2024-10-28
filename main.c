@@ -4,6 +4,7 @@
 #include <time.h>
 #include "functions.h"
 
+
 int main() {
     int n = 0;
     int choiceArray = 0, choiceSorting = 0, validSize = 0, validArray = 0;

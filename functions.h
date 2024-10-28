@@ -16,6 +16,7 @@ void generateRandomArray(double *arr, int n) {
     }
 }
 
+
 void descendingBubbleSort(double arr[], int n) {
     double temp;
     for (int i = 0; i < n - 1; i++) {
