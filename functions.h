@@ -16,7 +16,7 @@ void generateRandomArray(double *arr, int n) {
     }
 }
 
-void descendingBubbleSort(double arr[], int n) {
+void descendingBubbleSort(double *arr, int n) {
     double temp;
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -29,7 +29,7 @@ void descendingBubbleSort(double arr[], int n) {
     }
 }
 
-void ascendingBubbleSort(double arr[], int n) {
+void ascendingBubbleSort(double *arr, int n) {
     double temp;
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -60,7 +60,7 @@ void printArray(double *arr, int n) {
         if (i % 10 == 0) {
             printf("\n");
         }
-        printf("|| %*s%-12.2lf", maxNumberLength, " ", arr[i]);
+        printf("| %*s%-12.2lf", maxNumberLength, " ", arr[i]);
     }
 }
 
