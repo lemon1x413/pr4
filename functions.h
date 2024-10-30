@@ -1,4 +1,3 @@
-
 #ifndef OP4_FUNCTIONS_H
 #define OP4_FUNCTIONS_H
 

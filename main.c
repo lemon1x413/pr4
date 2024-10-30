@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "functions.h"
 
 int main() {
@@ -35,11 +36,14 @@ int main() {
                 for (int i = 0; i < n; i++) {
                     printf("\nElement (%d):", i + 1);
                     do {
-                        validArray = scanf("%lf", &arr[i]);
+                        validArray = scanf("%f", &arr[i]);
                         if (validArray != 1 || arr[i] < -10000 || arr[i] > 10000) {
                             printf("Invalid input.");
                             printf("\nElement (%d):", i + 1);
                             validArray = 0;
+                        }
+                        if (arr[i] == -0) {
+                            arr[i] = fabsf(arr[i]);
                         }
                         fflush(stdin);
                     } while (!validArray);
