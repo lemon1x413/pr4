@@ -9,8 +9,8 @@ int main() {
     int choiceArray = 0, choiceSorting = 0, validSize = 0, validArray = 0;
     srand((int) time(NULL));
     do {
+        printf("Enter the size of your array(from 2 to 1000):");
         do {
-            printf("Enter the size of your array(from 2 to 1000):");
             validSize = scanf("%d", &n);
             if (validSize != 1 || n < 2 || n > 1000) {
                 printf("Invalid input. The size of array must be from 2 to 1000\n");
