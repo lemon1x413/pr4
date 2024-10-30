@@ -6,7 +6,7 @@
 float random(float min, float max) {
     float range = (max - min);
     float div = RAND_MAX / range;
-    return min + (rand() / div);
+    return min + ((float)rand() / div);
 }
 
 void generateRandomArray(float *arr, int n) {
@@ -42,7 +42,7 @@ void ascendingBubbleSort(float *arr, int n) {
 }
 
 void inputChoice(const int *choice) {
-    int valid = 0;
+    char valid = 0;
     do {
         valid = scanf("%d", &*choice);
         if (valid != 1 || *choice != 0 && *choice != 1) {
@@ -54,7 +54,9 @@ void inputChoice(const int *choice) {
 }
 
 void printArray(float *arr, int n) {
-    int maxNumberLength = n == 0 ? 1 : (int) log10(n) + 2;
+    int maxNumberLength = n == 0
+                             ? 1
+                             : (int) log10(n) + 2;
     for (int i = 0; i < n; i++) {
         if (i % 10 == 0) {
             printf("\n");

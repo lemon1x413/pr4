@@ -13,7 +13,7 @@ int main() {
         printf("Enter the size of your array(from 2 to 1000):");
         do {
             validSize = scanf("%d", &n);
-            if (validSize != 1 || n < 2 || n > 1000) {
+            if (validSize != 1 || n < 2 || n > 1e3) {
                 printf("Invalid input. The size of array must be from 2 to 1000\n");
                 validSize = 0;
             }
@@ -37,7 +37,7 @@ int main() {
                     printf("\nElement (%d):", i + 1);
                     do {
                         validArray = scanf("%f", &arr[i]);
-                        if (validArray != 1 || arr[i] < -10000 || arr[i] > 10000) {
+                        if (validArray != 1 || arr[i] < -1e4 || arr[i] > 1e4) {
                             printf("Invalid input.");
                             printf("\nElement (%d):", i + 1);
                             validArray = 0;
