@@ -12,14 +12,14 @@ int main() {
         do {
             printf("Enter the size of your array(from 2 to 1000):");
             validSize = scanf("%d", &n);
-            fflush(stdin);
             if (validSize != 1 || n < 2 || n > 1000) {
-                printf("Invalid input. The size of array must be from 1 to 50\n");
+                printf("Invalid input. The size of array must be from 2 to 1000\n");
                 validSize = 0;
             }
+            fflush(stdin);
         } while (!validSize);
 
-        double arr[n] = {};
+        float arr[n] = {};
 
         printf("\nPlease select the method of setting the array (0 - generated, 1 - manually):");
         inputChoice(&choiceArray);
@@ -31,17 +31,17 @@ int main() {
                 printArray(arr, n);
                 break;
             case 1:
-                printf("Enter elements of your array (%d):", n);
+                printf("Enter elements of your array (from -10000 to 10000)(%d):", n);
                 for (int i = 0; i < n; i++) {
                     printf("\nElement (%d):", i + 1);
                     do {
                         validArray = scanf("%lf", &arr[i]);
-                        fflush(stdin);
                         if (validArray != 1 || arr[i] < -10000 || arr[i] > 10000) {
                             printf("Invalid input.");
                             printf("\nElement (%d):", i + 1);
                             validArray = 0;
                         }
+                        fflush(stdin);
                     } while (!validArray);
                 }
                 break;
